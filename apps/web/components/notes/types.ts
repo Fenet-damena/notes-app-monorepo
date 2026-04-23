@@ -1,8 +1,11 @@
 export type NoteCategory = "All" | "Work" | "Study" | "Personal";
 
+export type NoteCategoryValue = Exclude<NoteCategory, "All">;
+
 export type Note = {
   id: number;
   title: string;
   description: string;
-  category: Exclude<NoteCategory, "All">;
+  category: NoteCategoryValue;
+  createdAt?: string;
 };
