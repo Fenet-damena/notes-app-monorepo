@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { fetchNotes } from "./api";
 import FilterChips from "./FilterChips";
 import Navbar from "./Navbar";
@@ -15,34 +15,22 @@ export default function NotesPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    let isMounted = true;
-
-    async function loadNotes() {
-      try {
-        setIsLoading(true);
-        const response = await fetchNotes();
-        if (isMounted) {
-          setNotes(response);
-          setError(null);
-        }
-      } catch {
-        if (isMounted) {
-          setError("Unable to load notes. Please check that the API is running.");
-        }
-      } finally {
-        if (isMounted) {
-          setIsLoading(false);
-        }
-      }
+  const loadNotes = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetchNotes();
+      setNotes(response);
+      setError(null);
+    } catch {
+      setError("Unable to load notes. Please check that the API is running.");
+    } finally {
+      setIsLoading(false);
     }
-
-    loadNotes();
-
-    return () => {
-      isMounted = false;
-    };
   }, []);
+
+  useEffect(() => {
+    void loadNotes();
+  }, [loadNotes]);
 
   const filteredNotes = useMemo(() => {
     const normalizedSearch = searchTerm.trim().toLowerCase();
@@ -71,8 +59,12 @@ export default function NotesPage() {
         <div className="rounded-xl border border-rose-100 bg-white p-6 text-sm text-slate-600 shadow-sm">Loading notes...</div>
       ) : error ? (
         <div className="rounded-xl border border-rose-200 bg-rose-50 p-6 text-sm text-rose-700">{error}</div>
+      ) : filteredNotes.length === 0 ? (
+        <div className="rounded-xl border border-dashed border-rose-300 bg-white p-10 text-center text-sm text-slate-500 shadow-sm">
+          No notes found. Try another search or filter.
+        </div>
       ) : (
-        <NotesList notes={filteredNotes} />
+        <NotesList notes={filteredNotes} onDeleted={loadNotes} />
       )}
     </main>
   );
