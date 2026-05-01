@@ -1,4 +1,4 @@
-import NoteCard from "./NoteCard";
+import NoteCard from "../ui/NoteCard";
 import type { Note } from "./types";
 
 type NotesListProps = {

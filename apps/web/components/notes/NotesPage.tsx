@@ -1,11 +1,11 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { fetchNotes } from "./api";
-import FilterChips from "./FilterChips";
-import Navbar from "./Navbar";
+import { fetchNotes } from "../services/api";
+import FilterChips from "../ui/FilterChips";
+import Navbar from "../layout/Navbar";
 import NotesList from "./NotesList";
-import SearchBar from "./SearchBar";
+import SearchBar from "../ui/SearchBar";
 import type { Note, NoteCategory } from "./types";
 
 export default function NotesPage() {

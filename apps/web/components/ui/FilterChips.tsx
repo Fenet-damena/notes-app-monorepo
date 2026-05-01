@@ -1,4 +1,4 @@
-import type { NoteCategory } from "./types";
+import type { NoteCategory } from "../notes/types";
 
 const CATEGORIES: NoteCategory[] = ["All", "Work", "Study", "Personal"];
 

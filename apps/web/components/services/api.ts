@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { Note, NoteCategoryValue } from "./types";
+import type { Note, NoteCategoryValue } from "../notes/types";
 
 type ApiNote = {
   id: number;
