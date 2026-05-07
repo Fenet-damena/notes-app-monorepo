@@ -17,10 +17,11 @@ export default function FilterChips({ activeCategory, onChange }: FilterChipsPro
             key={category}
             type="button"
             onClick={() => onChange(category)}
-            className={`rounded-lg border px-4 py-2 text-sm font-medium transition ${
+            aria-pressed={isActive}
+            className={`rounded-full border px-4 py-2 text-sm font-medium transition duration-200 hover:-translate-y-0.5 ${
               isActive
-                ? "border-primary bg-primary text-white shadow-sm"
-                : "border-rose-200 bg-white text-slate-700 hover:border-primary/40 hover:text-primary"
+                ? "border-primary bg-primary text-white shadow-sm shadow-primary/20"
+                : "border-rose-200 bg-white text-slate-700 hover:border-primary/40 hover:bg-rose-50 hover:text-primary"
             }`}
           >
             {category}

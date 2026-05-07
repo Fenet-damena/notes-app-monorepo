@@ -39,10 +39,10 @@ export default function NoteCard({ note, onDeleted }: NoteCardProps) {
   }
 
   return (
-    <article className="rounded-xl border border-rose-100 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+    <article className="group rounded-2xl border border-rose-100 bg-white p-5 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-rose-100/50">
       <div className="mb-3 flex items-start justify-between gap-3">
-        <h3 className="text-lg font-semibold text-slate-900">{note.title}</h3>
-        <span className="rounded-full bg-rose-50 px-3 py-1 text-xs font-medium text-rose-700">{note.category}</span>
+        <h3 className="text-lg font-semibold tracking-tight text-slate-900 transition group-hover:text-rose-700">{note.title}</h3>
+        <span className="rounded-full bg-rose-50 px-3 py-1 text-xs font-medium text-rose-700 ring-1 ring-inset ring-rose-100">{note.category}</span>
       </div>
 
       <p className="text-sm leading-6 text-slate-700">{note.description}</p>
@@ -62,7 +62,7 @@ export default function NoteCard({ note, onDeleted }: NoteCardProps) {
             type="button"
             onClick={handleDelete}
             disabled={isDeleting}
-            className="rounded-md border border-rose-200 px-3 py-1.5 text-xs font-medium text-rose-700 transition hover:border-rose-300 hover:bg-rose-50"
+            className="rounded-md border border-rose-200 px-3 py-1.5 text-xs font-medium text-rose-700 transition hover:border-rose-300 hover:bg-rose-50 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {isDeleting ? "Deleting..." : "Delete"}
           </button>
