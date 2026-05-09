@@ -1,0 +1,10 @@
+{
+  "name": "@notes-app/utils",
+  "version": "1.0.0",
+  "description": "Shared utilities",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "lint": "echo 'No linting configured yet'"
+  }
+}

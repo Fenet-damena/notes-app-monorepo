@@ -1,0 +1,10 @@
+{
+  "name": "@notes-app/config",
+  "version": "1.0.0",
+  "description": "Shared configuration",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "lint": "echo 'No linting configured yet'"
+  }
+}
