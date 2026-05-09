@@ -8,12 +8,20 @@ export default function Navbar() {
         <p className="text-sm text-slate-600">Capture, search, and organize your notes.</p>
       </div>
 
-      <Link
-        href="/notes/new"
-        className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary/90"
-      >
-        + New Note
-      </Link>
+      <div className="flex items-center gap-3">
+        <Link
+          href="/dashboard"
+          className="rounded-lg bg-slate-200 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-300"
+        >
+          📊 Dashboard
+        </Link>
+        <Link
+          href="/notes/new"
+          className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary/90"
+        >
+          + New Note
+        </Link>
+      </div>
     </header>
   );
 }
