@@ -89,7 +89,3 @@ yarn dev
 yarn clean
 ```
 
-## Final Submission Notes
-- Add screenshots for the notes list page, create note page, API running, and edit/delete working.
-- Keep commit hashes and log entries in your progress log.
-- Use the `logs/` folder for any local submission notes or pasted report content.
